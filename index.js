@@ -1,4 +1,7 @@
-// alert('Hello, world');
 
-console.log('Hello, world');
-console.log(54);
+let a = 0;
+
+
+console.log(++a);
+
+console.log(a++);
