@@ -1,7 +1,4 @@
 
-let a = 0;
 
-
-console.log(++a);
-
-console.log(a++);
+let rezult = (2+2===4) ? 'Дійсно чотири' : 'Чогось не чотири';
+console.log(rezult);
