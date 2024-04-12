@@ -1,13 +1,37 @@
 
+let a = prompt('Перше число');
+let b = prompt('Друге число');
+let c = prompt('+ , - , *, /');
 
-function square(b) {
-    return b*b;
+calculator(a, b, c)
+
+function sum(a, b) {
+    return (a + b);
 }
 
-function superFunction(number, fn) { // функція вищого порядку (High Order Function - HOF)
-    
-    fn(number);  // callback - функція зворотного виклику
-
+function sub(a, b) {
+    return (a - b);
 }
 
-superFunction (5, square);
+function mult(a, b) {
+    return (a * b);
+}
+
+function div(a, b) {
+    return (a / b);
+}
+
+function calculator(a, b, c) {
+    switch (c) {
+        case '+':
+            return sum(a, b);
+        case '-':
+            return sub(a, b);
+        case '*':
+            return mult(a, b);
+        case '/':
+            return div(a, b);
+        default:
+            return ('Помилка');
+    }
+}
