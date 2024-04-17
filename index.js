@@ -1,50 +1,27 @@
+'use strict'
 
-// let cat = {
-//     breed: 'Blue Cheshire',
-//     name: 'Murzik',
-//     age: 3,
-//     weight: 10,
-//     color: 'grey',
-//     sleep: function () {
-//         console.log('I am sleping')
-//     },
-//     eat: function () {
-//         console.log('I am eating')
-//     },
-//     2: 'NewValue'
-// }
-
-
-// let murka ={
-//     breed: 'British',
-//     name: 'Murka',
-//     age: 2,
-//     weight: 5,
-//     color: 'red',
-//     sleep: function () {
-//         console.log('I am sleping')
-//     },
-//     eat: function () {
-//         console.log('I am eating')
-//     }
-// }
-
-// cat.girlfriend =murka;
-
-
-const weekPlan = {
-    Mon: 'dantist',
-    Tue: 'go to park',
-    Wed: 'meet friends',
-    Thu: 'learn',
-    Fri: 'hard work',
-    Sat: 'go to party'
+const user1 ={
+    firstName:'Alex',
+    lastName:'Grow',
+    age:15,
+    getFullName: function(){
+        console.log (this.firstName + this.lastName)
+    }
+   
 }
 
-function getWeekPlan(plan) {
-    const userValue = prompt('Який день неділі тебе цікавить?')
-    alert(plan[userValue])
-
+const user2 ={
+    firstName:'Jonh',
+    lastName:'Dow',
+    age:25,
+    getFullName: function(){
+        console.log (this.firstName + this.lastName)
+    }
 }
 
-getWeekPlan(weekPlan)
+
+function fn(){
+    console.log(this)
+}
+
+console.log(this)
