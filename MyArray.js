@@ -7,31 +7,42 @@ function fn(a){
 
 function MyArray(){
     
-    this.lenght =0;
+    this.length =0;
+    
+}
 
-    this.push = function (value){
-        this[this.lenght]= value;
-        return ++this.lenght;
+MyArray.prototype = new MyArrayMetods();
+
+
+function MyArrayMetods(){
+
+    this.push = function (){
+        for (let i= 0; i< arguments.length; i++) {
+          this[this.length]= arguments[i];
+          this.length++;
+        }
+        return this.length;
     }
 
     this.pop = function(){ 
-        const lastItem=this[this.lenght-1];
-        delete this[this.lenght-1];
-        this.lenght --;
+        const lastItem=this[this.length-1];
+        delete this[this.length-1];
+        this.length --;
         return lastItem;
     }
 
-    this.forEach = function(fn){
-        for (let i = 0; i < this.lenght; i++) {
+    this.forEach = function(callback){
+        for (let i = 0; i < this.length; i++) {
             fn(this[i],i,this)  
         }
     }
 
     this.map = function(fn){
         let newArray=new MyArray();
-        for (let i = 0; i < this.lenght; i++) {
+        for (let i = 0; i < this.length; i++) {
             newArray.push(fn(this[i])); 
         }
         return newArray;
     }
+
 }
