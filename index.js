@@ -31,8 +31,29 @@ const arrUsers = createArrayOfUsers(50);
 
 const fNameArray = arrUsers.map(function (userObj) { return `${userObj.firstName} ${userObj.lastName}` });
 
-arrUsers.sort(function (usA,usB){
-  return usA.age-usB.age;
+arrUsers.sort(function (usA, usB) {
+    return usA.age - usB.age;
 });
 
-console.table (arrUsers)
+// console.table (arrUsers)
+
+const sortUsers = arrUsers.filter(function (elem) {
+    return elem.age > 50
+
+})
+// console.table(sortUsers)
+
+
+const sortUsers18 = arrUsers.filter(function (elem) {
+
+    return (elem.age >= 18 && elem.isSubscribe)
+})
+
+// console.table(sortUsers18)
+
+const emails = arrUsers.filter(function (elem) {
+                            return (elem.age >= 18 && elem.isSubscribe)
+                      }).map(function (elem) {
+                            return elem.mail
+                        })
+
