@@ -1,13 +1,27 @@
 
 'use strict'
 
-function sumOfAllArguments() {
-    let sum = 0;
-    console.log(arguments)
-    for (let i = 0; i < arguments.length; i++) {
-        sum += arguments[i]
-    }
-    return sum;
+function Ladder(){
+    this.carrentStep = 0;
 }
 
 
+function LadderProto(){
+    
+    this.up = function up(){
+        debugger;
+        ++this.carrentStep;
+        return this;
+    }
+    this.down = function down(){
+       --this.carrentStep;
+       return this;
+    }
+
+    this.showStep = function showStep(){
+        return this.carrentStep;
+    }
+}
+
+
+Ladder.prototype = new LadderProto();
