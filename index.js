@@ -1,16 +1,19 @@
 
 'use strict'
 
-const obj={
-    key:'value',
-    testMethod: test
+function sum (a,b, ...array) {
+    console.log(a);
+    console.log(b);
+    console.log(array);
+
 }
 
-function test(){
-    console.log(this);
-}
+sum(1,2,3,4,5,6,7,8,9)
 
-const arrowFunction = (a,b) => a*b;
+const sumOfArguments = (...array)=>
+    array.reduce((accumulator, currentValue)=> accumulator + currentValue
+    ,0 );
 
-obj.testMethod();
-arrowFunction(4,5);
+
+
+console.log (sumOfArguments(1,2,3,4,5,6,7,8))
