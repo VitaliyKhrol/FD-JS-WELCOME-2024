@@ -1,9 +1,19 @@
 
 'use strict'
 
-for (let i = 1; i < 10; i++) {
-    for (let j = 1; j < 10; j++) {
-    console.log (`${i} * ${j} = ${i*j}`)
+
+function drawSquare(dimension) {
+
+    let square = '';
+    for (let i = 0; i <= dimension; i++) {
+        for (let j = 0; j <= dimension; j++) {
+            if (i === 0 || i === dimension || j === 0 || j === dimension || (dimension-i) === j) {
+                square += '*';
+            } else { square += ' ' }
+        }
+        square += '\n'
     }
-    console.log('----------------')
+    console.log(square)
 }
+
+drawSquare(20)
