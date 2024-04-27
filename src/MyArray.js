@@ -1,10 +1,5 @@
 'use strict'
 
-function fn(a){
-    return a*2
-}
-
-
 function MyArray(){
     
     this.length =0;
