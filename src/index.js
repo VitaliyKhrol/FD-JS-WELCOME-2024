@@ -17,7 +17,7 @@ class User {
     }
 }
 
-// const user = new User('Ivan', 'Doe',44,'www@mail.com')
+const user = new User('Ivan', 'Doe',44,'www@mail.com')
 
 
 class Fuel {
@@ -45,3 +45,29 @@ class Auto{
 
 const fuel = new Fuel (5,0.9);
 const auto = new Auto (3000,fuel)
+
+
+
+class Friend{
+    constructor(name, ownAmount,friend){
+        this.name=name;
+        this.ownAmount=ownAmount;
+        this.friend=friend;
+    }
+    countMouney(){
+        if (this.friend === null){
+            return this.ownAmount;
+        }
+        if (Array.isArray(this.friend)){
+            return this.ownAmount+ this.friend.reduce((money,friend)=>(money + friend.countMouney()),0)
+        }
+        return this.ownAmount + this.friend.countMouney();
+
+    }
+
+}
+
+const friend0 = new Friend('Jane',50,null);
+const friend1 = new Friend('Ivan',30,null);
+const friend2 = new Friend('Makar',511,friend1);
+const friend3 = new Friend('Polina',100,[friend2,friend0]);
