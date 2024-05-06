@@ -1,32 +1,56 @@
 'use strict'
 
 
-
-class Animal  {
-    constructor (name, amountOfLegs, type){
-        this.name = name;
-        this.amountOfLegs = amountOfLegs;
-        this.type = type;
+class Figure{
+    constructor(type){
+        this.sideQuantity=this.sideQuantity;
     }
-    run(){
-        return `${this.name} is running`
-    }
+    
+    getArea(){
 
-    eat (){
-        return 'Yumm!'
     }
 }
 
 
-class Cat extends Animal{
-    constructor (name, amountOfLegs,color){
-        super(name, amountOfLegs,'Cat');
-        this.color = color;
-   
+class Triangle extends Figure{
+    constructor (a,b,angle){
+        super(3);
+        this.a=a;
+        this.b=b;
+        this.angle=angle;
     }
-   
-    sleep(){
-        return  `${this.name} is sleeping`
+
+    getArea(){
+        return 0,5*this.a * this.b*Math.sin(this.angle)
     }
 }
-const cat = new Cat('Cocos', 4, 'red')
+
+class Square extends Figure{
+    constructor (a ){
+        super(4);
+        this.a=a;
+    }
+
+    getArea(){
+        return this.a*this.a;
+    }
+}
+
+class Circle extends Figure{
+    constructor (d){
+        super(Infinity);
+        this.d=d;
+    }
+
+    getArea(){
+        return Math.PI*(this.d*this.d/4)
+    }
+}
+
+function calculateArea (figure){
+    return figure.getArea();
+}
+
+
+const circle  = new Circle(10);
+const square = new Square(5)
