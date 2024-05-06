@@ -34,5 +34,3 @@ class MyNewArray {
 
 }
 
-
-const mnarr = new MyNewArray();
