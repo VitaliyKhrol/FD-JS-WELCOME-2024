@@ -54,3 +54,29 @@ function calculateArea (figure){
 
 const circle  = new Circle(10);
 const square = new Square(5)
+
+
+class User {
+    constructor(mail,password,isBanned){
+        this.mail = mail;
+        this.password= password;
+        this.isBanned= isBanned;
+    }
+    getSayHello(){
+        return 'Say Hello'
+    }
+}
+
+class Moderator extends User {
+    constructor(mail,password){
+        super(mail,password)
+     }
+
+    getIsBanned(user){
+        user.isBanned = true;
+    }
+}
+
+
+ const user = new User('sss@gmaik,com', 'qwerty', false)
+ const moderator = new Moderator ('www@gmail.com', '12345')

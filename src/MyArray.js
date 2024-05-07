@@ -41,6 +41,4 @@ function MyArrayMetods(){
     }
 
 }
-
-
 const myarr = new MyArray();
