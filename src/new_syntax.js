@@ -32,41 +32,52 @@ class MyNewArray {
         return newArray;
     }
 
-    concat(arr2){
+    concat(arr2) {
         for (let i = 0; i < arr2.length; i++) {
             this.push(arr2[i])
-            
+
         }
         return this;
 
     }
 
-    flat(){
+    flat() {
         const res = new MyNewArray;
         for (let i = 0; i < this.length; i++) {
-          if (MyNewArray.isMyNewArray(this[i])){
+            if (MyNewArray.isMyNewArray(this[i])) {
                 res.concat(this[i].flat())
-          } else {
-            res.push(this[i])
-          }
-            
+            } else {
+                res.push(this[i])
+            }
+
         }
         return res;
     }
 
-    static isMyNewArray(obj){
+    static isMyNewArray(obj) {
         return obj instanceof MyNewArray;
     }
 
-    reverse(){
-        let len = this.length-1;
+    reverse() {
+        let len = this.length - 1;
         // debugger;
-        for (let i = 0; i<=len/2; i++) {
+        for (let i = 0; i <= len / 2; i++) {
             const tmp = this[i];
-            this[i]= this[len-i];
-            this[len-i]= tmp; 
+            this[i] = this[len - i];
+            this[len - i] = tmp;
         }
         return this;
+    }
+
+    indexOf(elem) {
+
+        for (let i = 0; i < this.length; i++) {
+            if (this[i] === elem) {
+                return i;
+            }
+
+        }
+        return -1;
     }
 
     [Symbol.iterator]() {
@@ -88,6 +99,6 @@ class MyNewArray {
 
 const myarr = new MyNewArray();
 const myarr1 = new MyNewArray();
-myarr1.push(1,2,3,4,5,6,7,8,9);
-myarr.push(1,2,3,4,5,myarr1);
+myarr1.push(11, 22, 31, 4, 5, 6, 7, 8, 9);
+myarr.push(1, 2, 3, 4, 5, myarr1);
 
