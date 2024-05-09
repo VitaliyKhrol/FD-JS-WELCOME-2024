@@ -68,6 +68,22 @@ class MyNewArray {
         }
         return this;
     }
+
+    [Symbol.iterator]() {
+        let i = 0;
+        return {
+            next: () => {
+                return {
+                    value: this[i++],
+                    done: i > this.length
+                }
+
+            }
+        }
+    }
+
+
+
 }
 
 const myarr = new MyNewArray();

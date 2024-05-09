@@ -14,7 +14,7 @@ const obj = {
             next: () => {
                 return {
                     value: this[i++],
-                    done: i > this.length +1
+                    done: i > this.length+1
                 }
 
             }
