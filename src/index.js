@@ -1,80 +1,32 @@
-'use strict'
+class Queue {
+    constructor(){
+        this._head =0;
+        this._tail=0;
+    }
 
-class Stack {
-    constructor(maxSize, ...arr) {
-        this._maxSize = maxSize;
-        this._size = 0;
-        for (const i of arr) {
-            this.push(i)
+    get size(){
+        return this._tail-this._head;
+
+    }
+
+    enqueue(valve){
+        if (this.size === 0){
+            this[`_${this._head}`] = valve;
         }
+        this[`_${this._tail}`]= valve;
+        this._tail++;
+
+        return this.size;
     }
 
-    get size() {
-        return this._size;
-    }
-
-    get isEmpty() {
-        return this._size === 0;
-    }
-
-    push(value) {
-
-        if (this._size >= this._maxSize) {
-            throw new RangeError('Stack overflow')
-        } else {
-            this[`_${this.size}`] = value;
-            this._size++;
-            return this._size;
+    dequeue(){
+        if (this.size){
+            const firstItem = this[`_${this._head}`];
+            delete this[`_${this._head}`];
+            this._head++;
+            return firstItem;
         }
-    }
-
-    pop() {
-        const lastItem = this[`_${this.size - 1}`];
-        delete this[`_${this.size - 1}`];
-        this._size--;
-        return lastItem;
-
-    }
-
-    pick() {
-        return this[`_${this.size - 1}`]
     }
 }
 
 
-const braces = {
-    '(': ')',
-    '{': '}',
-    '[': ']',
-}
-
-function checkSequences(str, braces) {
-
-    const stack = new Stack(str.lenght)
-    const closesBraces = Object.values(braces)
-
-    for (const i of str) {
-        // debugger;
-        if (braces[i]) {
-            stack.push(i)
-            continue;
-        }
-        if (closesBraces.includes(i) && stack.isEmpty) {
-            return false
-        }
-
-        const lastItemFromStack = stack.pick();
-        const correctCloseBrace = braces[lastItemFromStack];
-        if (i === correctCloseBrace) {
-            stack.pop();
-        } else if (closesBraces.includes(i) || braces[i]) {
-            return false;
-        }
-
-    }
-    return stack.isEmpty;
-}
-
-
-
-const str = '({{{{{{{{{[2]})'
