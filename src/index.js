@@ -18,7 +18,7 @@ class Stack {
     }
 
     push(value) {
- 
+
         if (this._size >= this._maxSize) {
             throw new RangeError('Stack overflow')
         } else {
@@ -36,7 +36,45 @@ class Stack {
 
     }
 
-    pick (){
-        return this[`_${this.size-1}`]
+    pick() {
+        return this[`_${this.size - 1}`]
     }
 }
+
+
+const braces = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+}
+
+function checkSequences(str, braces) {
+
+    const stack = new Stack(str.lenght)
+    const closesBraces = Object.values(braces)
+
+    for (const i of str) {
+        // debugger;
+        if (braces[i]) {
+            stack.push(i)
+            continue;
+        }
+        if (closesBraces.includes(i) && stack.isEmpty) {
+            return false
+        }
+
+        const lastItemFromStack = stack.pick();
+        const correctCloseBrace = braces[lastItemFromStack];
+        if (i === correctCloseBrace) {
+            stack.pop();
+        } else if (closesBraces.includes(i) || braces[i]) {
+            return false;
+        }
+
+    }
+    return stack.isEmpty;
+}
+
+
+
+const str = '({{{{{{{{{[2]})'
