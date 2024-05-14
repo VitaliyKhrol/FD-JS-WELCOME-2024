@@ -1,21 +1,6 @@
 
-const vocabulary = new Map();
- vocabulary.set('cat','кіт')
- vocabulary.set('dog','собака')
- vocabulary.set('eat','їсти')
- vocabulary.set('meat','мясо')
 
+const arr1 =[2,7,5,1,9,-10];
+const arr2 = [4,2,7,10]
 
- function translater (str,vocabulary){
-    const wordArray = str.toLowerCase().split(' ')
-    console.log(wordArray);
-    const resArray=[];
-    for (const i of wordArray) {
-        if (vocabulary.has(i))
-        resArray.push(vocabulary.get(i))
-        else {resArray.push(i)}
-    }
-    return resArray.join (' ');
- }
-
- translater('Dog Eat  etettete Cat',vocabulary)
+const arrNew = [...(new Set(arr1.concat(arr2)))]
