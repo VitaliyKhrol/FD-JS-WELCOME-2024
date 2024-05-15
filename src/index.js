@@ -17,6 +17,7 @@ const userObj = {
     name: {
         first: 'John',
         last: 'Doe',
+        faserName: 'Petrovich',
     },    
     age: 20,
     aut:{
@@ -28,3 +29,17 @@ const userObj = {
 const {age}= userObj;
 const {name: {first,last}} = userObj;
 const {aut: {email,pass}} = userObj;
+
+
+function getFullName({name:{first,last, ...eee}, ...restofUser}) {
+    console.log(eee)
+    console.log(restofUser)
+    return `${first} - ${last}`
+}
+
+const map1 = new Map([[1, { username: 'john Doe' }], [2, { username: 'jane Doe' }], [3, { username: 'alex Doe' }]]);
+
+const res1 = [...map.entries()].map(([key, {username}]) => { return `${key} ${username}` })
+
+
+
